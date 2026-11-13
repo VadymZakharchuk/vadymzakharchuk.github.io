@@ -18,6 +18,7 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'github_pages',
-    prerender: { routes: ['/', '/en/'], crawlLinks: true },
+    // Only two pages: list them instead of crawling (the crawler would follow the encoded mailto link).
+    prerender: { routes: ['/', '/en/'], crawlLinks: false },
   },
 })

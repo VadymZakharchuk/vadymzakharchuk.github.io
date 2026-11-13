@@ -10,6 +10,12 @@ const TELEGRAM = 'https://t.me/VAZAKHAR'
 // Empty = the WhatsApp contact is hidden.
 const WHATSAPP = ''
 
+// The email is written into the HTML as numeric character references: browsers show and open it
+// normally, simple scrapers that look for "name@domain" in the source don't see it.
+const encode = (s: string) => [...s].map(ch => `&#${ch.codePointAt(0)};`).join('')
+const emailLink = computed(() =>
+  `<a class="btn btn-accent" href="${encode(`mailto:${EMAIL}`)}"><small>${props.t.contact.emailLabel}</small>${encode(EMAIL)}</a>`)
+
 const isUk = computed(() => props.t.lang === 'uk')
 const selfUrl = computed(() => (isUk.value ? `${SITE}/` : `${SITE}/en/`))
 const otherPath = computed(() => (isUk.value ? '/en/' : '/'))
@@ -30,7 +36,6 @@ useHead({
       'name': isUk.value ? 'Вадим Захарчук' : 'Vadym Zakharchuk',
       'jobTitle': props.t.hero.title,
       'url': selfUrl.value,
-      'email': `mailto:${EMAIL}`,
       'address': { '@type': 'PostalAddress', 'addressLocality': 'Kyiv', 'addressCountry': 'UA' },
       'sameAs': ['https://www.linkedin.com/in/Vadym-Zakharchuk', 'https://github.com/VadymZakharchuk', TELEGRAM],
       'knowsAbout': ['Vue.js', 'Nuxt', 'Node.js', 'Technical SEO', 'n8n', 'API integrations'],
@@ -175,7 +180,8 @@ useSeoMeta({
         <h2>{{ t.contact.title }}</h2>
         <p class="lead">{{ t.contact.lead }}</p>
         <div class="contacts">
-          <a class="btn btn-accent" :href="`mailto:${EMAIL}`"><small>{{ t.contact.emailLabel }}</small>{{ EMAIL }}</a>
+          <!-- eslint-disable-next-line vue/no-v-html -- static, encoded email; see emailLink -->
+          <span class="email" v-html="emailLink" />
           <a class="btn btn-ghost" :href="TELEGRAM" target="_blank" rel="noopener"><small>{{ t.contact.telegramLabel }}</small>@VAZAKHAR</a>
           <a v-if="WHATSAPP" class="btn btn-ghost" :href="WHATSAPP" target="_blank" rel="noopener"><small>{{ t.contact.whatsappLabel }}</small>WhatsApp</a>
         </div>
@@ -244,7 +250,7 @@ useSeoMeta({
 
 .about { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 860px) { .about { grid-template-columns: 300px 1fr; gap: 64px; } }
-.portrait { width: 100%; max-width: 300px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; }
+.portrait { width: 100%; max-width: 300px; aspect-ratio: 4 / 5; object-fit: contain; border-radius: 12px; }
 .about h2 { margin-bottom: 18px; }
 .para { margin: 0 0 14px; max-width: 36em; color: var(--ink-soft); }
 .facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
@@ -254,8 +260,9 @@ useSeoMeta({
 .contact h2 { margin-bottom: 14px; }
 .contact .lead { color: var(--on-dark-muted); margin: 0 auto; max-width: 36em; }
 .contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 32px; }
-.contacts .btn { display: flex; flex-direction: column; align-items: center; min-width: 240px; overflow-wrap: anywhere; }
-.contacts small { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; opacity: .7; }
+.contacts .btn, .email :deep(.btn) { display: flex; flex-direction: column; align-items: center; min-width: 240px; overflow-wrap: anywhere; }
+.email { display: flex; }
+.contacts small, .email :deep(small) { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; opacity: .7; }
 
 .footer { background: #0D1730; color: var(--on-dark-muted); font-size: 14px; padding: 24px 0; }
 </style>
