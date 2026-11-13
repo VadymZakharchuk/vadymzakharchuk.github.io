@@ -76,7 +76,10 @@ const uk: SiteTexts = {
     kicker: 'Що вже зроблено',
     title: 'Кейси',
     items: [
-      { title: 'compendium.com.ua', url: 'https://compendium.com.ua', text: 'Технічне SEO фармплатформи на Nuxt: індекс зріс з ~40–50 тис. до 300–400 тис. сторінок.' },
+      { title: 'compendium.com.ua', url: 'https://compendium.com.ua', text: 'Технічне SEO фармплатформи на Nuxt: індекс зріс з ~40–50 тис. до 300–400 тис. сторінок. Карта аптек з оновленням у реальному часі.' },
+      { title: 'apteki.ua', url: 'https://apteki.ua', text: 'Пошук ліків, цін і наявності в аптеках на Nuxt: фронтенд, REST API і технічне SEO великого каталогу.' },
+      { title: 'Credit Agricole Ukraine', text: 'Платформа онлайн-банкінгу: захищений, покритий тестами фронтенд для банківських операцій, рефакторинг легасі-коду на Nuxt 2.' },
+      { title: 'umj.com.ua', url: 'https://umj.com.ua', text: 'Український медичний часопис: переїзд з WordPress на Nuxt. Увесь фронтенд — повністю на мені.' },
       { title: 'Vibe BI', url: 'https://vibe-bi.com.ua', text: 'SaaS маркетингової аналітики: дашборди, щоденні конвеєри даних з GA4, Google Ads і Meta, білінг.' },
       { title: 'Pagelean', url: 'https://pagelean.app', text: 'Система технічних аудитів сайтів і аутрічу: черга аудитів, PDF-звіти двома мовами, розсилка з відстеженням.' },
       { title: 'Автоматизація лідів на n8n', text: 'Форма на сайті → AI-кваліфікація заявки → HubSpot → сповіщення в Telegram.' },

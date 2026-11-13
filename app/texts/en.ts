@@ -76,7 +76,10 @@ const en: SiteTexts = {
     kicker: 'Recent work',
     title: 'Selected projects',
     items: [
-      { title: 'compendium.com.ua', url: 'https://compendium.com.ua', text: 'Technical SEO for a Nuxt pharmaceutical platform: indexed pages grew from about 40–50k to 300–400k.' },
+      { title: 'compendium.com.ua', url: 'https://compendium.com.ua', text: 'Technical SEO for a Nuxt pharmaceutical platform: indexed pages grew from about 40–50k to 300–400k. Pharmacy map with real-time updates.' },
+      { title: 'apteki.ua', url: 'https://apteki.ua', text: 'Medicine search with prices and pharmacy availability on Nuxt: front-end, REST APIs and technical SEO for a large catalogue.' },
+      { title: 'Credit Agricole Ukraine', text: 'Online banking platform: secure, test-covered front-end for banking operations, refactoring of a legacy Nuxt 2 codebase.' },
+      { title: 'umj.com.ua', url: 'https://umj.com.ua', text: 'Ukrainian Medical Journal: migration from WordPress to Nuxt. I built the entire front-end.' },
       { title: 'Vibe BI', url: 'https://vibe-bi.com.ua', text: 'Marketing analytics SaaS: dashboards, daily data pipelines from GA4, Google Ads and Meta, subscription billing.' },
       { title: 'Pagelean', url: 'https://pagelean.app', text: 'A system for technical website audits and outreach: audit queue, PDF reports in two languages, email campaigns with tracking.' },
       { title: 'Lead automation on n8n', text: 'Website form → AI lead qualification → HubSpot → Telegram alerts.' },
