@@ -6,9 +6,8 @@ const props = defineProps<{ t: SiteTexts }>()
 const SITE = 'https://vadymzakharchuk.github.io'
 const EMAIL = 'vadym.zakharchuk@gmail.com'
 const TELEGRAM = 'https://t.me/VAZAKHAR'
-// WhatsApp Business short link (wa.me/message/…) keeps the phone number off the page.
-// Empty = the WhatsApp contact is hidden.
-const WHATSAPP = ''
+// WhatsApp username link: no phone number on the page. Empty = the WhatsApp contact is hidden.
+const WHATSAPP = 'https://wa.me/VZakharchuk'
 
 // The email is written into the HTML as numeric character references: browsers show and open it
 // normally, simple scrapers that look for "name@domain" in the source don't see it.
@@ -37,7 +36,7 @@ useHead({
       'jobTitle': props.t.hero.title,
       'url': selfUrl.value,
       'address': { '@type': 'PostalAddress', 'addressLocality': 'Kyiv', 'addressCountry': 'UA' },
-      'sameAs': ['https://www.linkedin.com/in/Vadym-Zakharchuk', 'https://github.com/VadymZakharchuk', TELEGRAM],
+      'sameAs': ['https://www.linkedin.com/in/Vadym-Zakharchuk', 'https://github.com/VadymZakharchuk', TELEGRAM, WHATSAPP],
       'knowsAbout': ['Vue.js', 'Nuxt', 'Node.js', 'Technical SEO', 'n8n', 'API integrations'],
     }),
   }],
@@ -183,7 +182,7 @@ useSeoMeta({
           <!-- eslint-disable-next-line vue/no-v-html -- static, encoded email; see emailLink -->
           <span class="email" v-html="emailLink" />
           <a class="btn btn-ghost" :href="TELEGRAM" target="_blank" rel="noopener"><small>{{ t.contact.telegramLabel }}</small>@VAZAKHAR</a>
-          <a v-if="WHATSAPP" class="btn btn-ghost" :href="WHATSAPP" target="_blank" rel="noopener"><small>{{ t.contact.whatsappLabel }}</small>WhatsApp</a>
+          <a v-if="WHATSAPP" class="btn btn-ghost" :href="WHATSAPP" target="_blank" rel="noopener"><small>{{ t.contact.whatsappLabel }}</small>@VZakharchuk</a>
         </div>
       </div>
     </section>
