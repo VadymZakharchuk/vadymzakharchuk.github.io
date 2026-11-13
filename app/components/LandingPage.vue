@@ -244,7 +244,7 @@ useSeoMeta({
 
 .about { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 860px) { .about { grid-template-columns: 300px 1fr; gap: 64px; } }
-.portrait { width: 100%; max-width: 300px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; }
+.portrait { width: 100%; max-width: 300px; aspect-ratio: 4 / 5; object-fit: contain; border-radius: 12px; }
 .about h2 { margin-bottom: 18px; }
 .para { margin: 0 0 14px; max-width: 36em; color: var(--ink-soft); }
 .facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
